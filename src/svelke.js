@@ -42,15 +42,23 @@ var Svelke = (function() {
     var interval = setInterval(function() {
       if (count < 50) {
         top += -5 * Math.random();
-        left += 10 * Math.random();
+        left += 5 * Math.random();
       } else if (count < 100) {
         if (count == 50) {
-          element.innerText = element.innerText.replace('彡ﾉﾉﾊミ', '彡 ⌒ ミ');
+          var aa = element.innerText;
+          aa = aa.slice(0, zuraPosition[2])
+             + aa.slice(zuraPosition[2], zuraPosition[3]).replace('彡ﾉﾉﾊミ', '彡 ⌒ ミ')
+             + aa.slice(zuraPosition[3]);
+          element.innerText = aa;
         }
         top += 5 * Math.random();
-        left += 10 * Math.random();
+        left += 5 * Math.random();
       } else if (count == 100) {
-        element.innerText = element.innerText.replace('彡 ⌒ ミ', '〆⌒ ヽ');
+        var aa = element.innerText;
+        aa = aa.slice(0, zuraPosition[2])
+           + aa.slice(zuraPosition[2], zuraPosition[3]).replace('彡 ⌒ ミ', '〆⌒ ヽ')
+           + aa.slice(zuraPosition[3]);
+        element.innerText = aa;
         clearInterval(interval);
       }
       nukege.style = `position:absolute;  top:${top}; left:${left}`;
@@ -82,16 +90,22 @@ var Svelke = (function() {
     var exists = true;
     var aa = element.innerText;
     var zura = this.getZura(aa);
+    var lineNum = 0;
+    var p1 = 0;
+    var p2 = 0;
     while (zura) {
       var zuraPos = zura.index + zura[0].length;
       var tmp = aa.slice(0, zuraPos);
       var linePos = tmp.lastIndexOf('\n');
-      var lineNum = 0;
       if (linePos > 0) {
-        lineNum = tmp.slice(0, linePos + 1).split('\n').length - 1;
+        lineNum += tmp.slice(0, linePos + 1).split('\n').length - 1;
       }
       var width = this.getTextWidth(aa.slice(linePos, zura.index), fontFamily);
-      positions.push([element.offsetTop + lineNum * fontSize * 1.1, element.offsetLeft + width]);
+      var w = element.offsetTop + lineNum * fontSize * 1.1;
+      var h = element.offsetLeft + width;
+      p1 += zura.index;
+      p2 += zuraPos;
+      positions.push([w, h, p1, p2]);
       aa = aa.slice(zuraPos);
       zura = this.getZura(aa);
     }
