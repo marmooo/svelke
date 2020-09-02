@@ -1,29 +1,41 @@
 <html>
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142997649-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-142997649-1');
+    </script>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Svelke - demo</title>
+    <meta name="description" content="効率的にハゲるためのフレームワーク Svelke のサンプルです。">
     <style>
-@font-face {
-  font-family: 'Textar';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Textar'),
-  url('https://marmooo.github.io/fonts/textar-light.woff2') format('woff2'),
-  url('https://marmooo.github.io/fonts/textar-light.woff') format('woff'),
-  url('https://marmooo.github.io/fonts/textar-light.ttf') format('ttf');
-}
-pre.aa {
-  font-size: 1em;
-  line-height: 1.1;
-  font-family: 'ＭＳ Ｐゴシック','MS PGothic','梅Pゴシック',Textar,sans-serif;
-  margin: 1em;
-  padding: 0.5em;
-  border: 0;
-  white-space: pre;
-  word-wrap: normal;
-}
+      @font-face {
+        font-family: 'Textar';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Textar'),
+        url('https://marmooo.github.io/fonts/textar-light.woff2') format('woff2'),
+        url('https://marmooo.github.io/fonts/textar-light.woff') format('woff'),
+        url('https://marmooo.github.io/fonts/textar-light.ttf') format('ttf');
+      }
+      pre.aa {
+        font-size: 1em;
+        line-height: 1.1;
+        font-family: 'ＭＳ Ｐゴシック','MS PGothic','梅Pゴシック',Textar,sans-serif;
+        margin: 1em;
+        padding: 0.5em;
+        border: 0;
+        white-space: pre;
+        word-wrap: normal;
+      }
     </style>
   </head>
   <body>
-
     <pre id='fusa' class='aa'>
 
 
@@ -33,9 +45,9 @@ pre.aa {
 彡ﾉﾉﾊミ　　　　　　　　＜(＾o＾)／
 ( `･ω･)　　　　　　　　　 ／＜
     </pre>
-  <script src="svelke.js"></script>
-  <script>
-    var svelke = new Svelke(document.getElementById('fusa'), 200);
-  </script>
+    <script src="svelke.js"></script>
+    <script>
+      var svelke = new Svelke(document.getElementById('fusa'), 200);
+    </script>
   </body>
 </html>
